@@ -22,7 +22,7 @@ module.exports = {
         end: '$$'
       },
       process(block) {
-        let output = ''
+        var output = ''
         try {
           output = katex.renderToString(block.body, {
             displayMode: true
@@ -41,7 +41,7 @@ module.exports = {
         end: '$'
       },
       process(block) {
-        let output = ''
+        var output = ''
         try {
           output = katex.renderToString(block.body, {
             displayMode: false
