@@ -6,7 +6,7 @@ Use it for your book, by adding to your book.json:
 
 ```
 {
-  "plugins": ["katex-plus"]
+  "plugins": ["katex-plus@git+https://github.com/SamLau95/gitbook-plugin-katex-plus"]
 }
 ```
 
@@ -34,4 +34,4 @@ Block math:
 
 ## Comparison with [gitbook-plugin-katex](https://github.com/GitbookIO/plugin-katex)
 
-- Use single `$` for inline math.
+* Use single `$` for inline math.
