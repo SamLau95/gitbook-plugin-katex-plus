@@ -3,55 +3,56 @@ const katex = require('katex')
 module.exports = {
   book: {
     assets: './static',
-    js: [],
-    css: [
-      'katex.min.css'
-    ]
+    js: ['katex.min.js', 'auto-render.min.js', 'plugin.js'],
+    css: ['katex.min.css'],
   },
   ebook: {
     assets: './static',
-    css: [
-      'katex.min.css'
-    ]
+    js: ['katex.min.js', 'auto-render.min.js', 'plugin.js'],
+    css: ['katex.min.css'],
   },
-  blocks: {
-    math: { // Double dollar signs ($) for math blocks (centered)
-      shortcuts: {
-        parsers: ['markdown', 'asciidoc', 'restructuredtext'],
-        start: '$$',
-        end: '$$'
-      },
-      process(block) {
-        var output = ''
-        try {
-          output = katex.renderToString(block.body, {
-            displayMode: true
-          })
-        } catch (e) {
-          console.error(e)
-          output = e
-        }
-        return output
-      }
-    },
-    math_inline: { // Single dollar sign for inline math
-      shortcuts: {
-        parsers: ['markdown', 'asciidoc', 'restructuredtext'],
-        start: '$',
-        end: '$'
-      },
-      process(block) {
-        var output = ''
-        try {
-          output = katex.renderToString(block.body, {
-            displayMode: false
-          })
-        } catch (e) {
-          console.error(e)
-          output = e
-        }
-        return output
-      }
-    }
-  }
+  // blocks: {
+  //   math: {
+  //     // Double dollar signs ($) for math blocks (centered)
+  //     shortcuts: {
+  //       parsers: ['markdown', 'asciidoc', 'restructuredtext'],
+  //       start: '$$',
+  //       end: '$$',
+  //     },
+  //     process(block) {
+  //       var output = ''
+  //       try {
+  //         console.log('Block:', block.body)
+  //         output = katex.renderToString(block.body, {
+  //           displayMode: true,
+  //         })
+  //       } catch (e) {
+  //         console.error(e)
+  //         output = e
+  //       }
+  //       return output
+  //     },
+  //   },
+  //   math_inline: {
+  //     // Single dollar sign for inline math
+  //     shortcuts: {
+  //       parsers: ['markdown', 'asciidoc', 'restructuredtext'],
+  //       start: '$',
+  //       end: '$',
+  //     },
+  //     process(block) {
+  //       var output = ''
+  //       try {
+  //         console.log('Inline:', block.body)
+  //         output = katex.renderToString(block.body, {
+  //           displayMode: false,
+  //         })
+  //       } catch (e) {
+  //         console.error(e)
+  //         output = e
+  //       }
+  //       return output
+  //     },
+  //   },
+  // },
 }
